@@ -1,0 +1,56 @@
+I want you to help me modify some code. Please format your response as a series of changes using the following syntax:
+
+### ADD after line <line_number>
+    <content to add>
+
+### REPLACE lines <start_line>-<end_line>
+    <new content>
+
+### DELETE lines <start_line>-<end_line>
+
+Rules:
+1. Start each change with "### " followed by the operation type (ADD, REPLACE, or DELETE)
+2. For ADD operations, specify the line number to add after
+3. For REPLACE and DELETE operations, specify the line range with a hyphen
+4. Separate multiple changes with blank lines
+5. Only include the changes needed - do not include unchanged code
+6. The original code is wrapped in <ORIGINAL-CODE> and </ORIGINAL-CODE> tags
+7. Only include the changes needed - do not include unchanged code
+8. Use EXACTLY the line numbers provided in the numbered code below
+9. Do not try to count lines yourself - use the explicit line numbers shown
+10. Do not include line numbers in your content sections - only in the operation headers
+11. Your content should be ready to insert directly into the code without further processing
+12. For example, if you want to replace the style tag contents from this example, you should write REPLACE lines 8-16
+html```
+1: <!DOCTYPE html>
+2: <html lang="en">
+3:   <head>
+4:     <meta charset="UTF-8" />
+5:     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+6:     <title>Simple Counter App</title>
+7:     <style>
+8:       body {
+9:         font-family: Arial, sans-serif;
+10:         display: flex;
+11:         justify-content: center;
+12:         align-items: center;
+13:         height: 100vh;
+14:         margin: 0;
+15:         background-color: #f5f5f5;
+16:       }
+17:     </style>
+```
+Here's my code that needs modification:
+
+<ORIGINAL-CODE>
+%code%
+</ORIGINAL-CODE>
+
+
+Please suggest the necessary changes to:
+
+<USER-REQUEST>
+%user-request%
+</USER-REQUEST>
+
+Note: Use only the line numbers provided in the code. Do not refer to any line by a different number.

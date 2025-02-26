@@ -1,0 +1,19 @@
+{
+	"name": "Claude line by line",
+	"version": "1.0.0",
+	"description": "AI-powered HTML modifier using Claude API",
+	"main": "app.js",
+	"type": "module",
+	"scripts": {
+		"start": "node app.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": ["claude", "html", "modifier", "ai"],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@anthropic-ai/sdk": "^0.37.0",
+		"diff": "^7.0.0",
+		"dotenv": "^16.4.7"
+	}
+}

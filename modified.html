@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Counter App</title>
+    <style>
+body {
+        font-family: 'Roboto', Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+        background-image: 
+          linear-gradient(rgba(200, 200, 200, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(200, 200, 200, 0.1) 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+      .counter-container {
+        position: relative;
+        text-align: center;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        border: 2px solid #333;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        max-width: 90%;
+        width: 350px;
+      }
+      .counter-container::before {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        border: 1px dashed rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        pointer-events: none;
+      }
+      .counter {
+        font-size: 5rem;
+        margin: 1.5rem 0;
+        color: #333;
+        font-weight: bold;
+      }
+      .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+      button {
+        padding: 0.75rem 1.75rem;
+        font-size: 1.2rem;
+        border: 2px solid #333;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background-color: white;
+        color: #333;
+        font-weight: bold;
+      }
+      .decrement {
+        border-color: #ff6b6b;
+      }
+      .reset {
+        border-color: #666;
+      }
+      .increment {
+        border-color: #51cf66;
+      }
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      button:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 10px;
+      }
+      h1::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 3px;
+        background-color: #333;
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 480px) {
+        .counter-container {
+          padding: 1.5rem;
+          width: 85%;
+        }
+        .counter {
+          font-size: 4rem;
+        }
+        button {
+          padding: 0.6rem 1.2rem;
+          font-size: 1rem;
+        }
+      }
+        background-color: #aaa;
+        color: white;
+      }
+      .increment {
+        background-color: #51cf66;
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        color: white;
+      }
+      button:hover {
+<h1>Paper Counter</h1>
+      <div class="counter" id="counter">0</div>
+    </style>
+  </head>
+  <body>
+    <div class="counter-container">
+      <h1>Counter App</h1>
+      <div class="counter" id="counter">0</div>
+      <div class="buttons">
+        <button class="decrement" onclick="decrementCounter()">-</button>
+        <button class="reset" onclick="resetCounter()">Reset</button>
+        <button class="increment" onclick="incrementCounter()">+</button>
+      </div>
+    </div>
+
+    <script>
+      // Initialize counter value
+      let count = 0;
+
+      // Function to update the counter display
+      function updateCounterDisplay() {
+        document.getElementById("counter").textContent = count;
+      }
+
+      // Function to increment counter
+      function incrementCounter() {
+        count++;
+        updateCounterDisplay();
+      }
+
+      // Function to decrement counter
+      function decrementCounter() {
+        count--;
+        updateCounterDisplay();
+      }
+
+      // Function to reset counter
+      function resetCounter() {
+        count = 0;
+        updateCounterDisplay();
+      }
+    </script>
+  </body>
+</html>
