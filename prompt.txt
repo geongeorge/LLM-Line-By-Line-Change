@@ -20,26 +20,8 @@ Rules:
 9. Do not try to count lines yourself - use the explicit line numbers shown
 10. Do not include line numbers in your content sections - only in the operation headers
 11. Your content should be ready to insert directly into the code without further processing
-12. For example, if you want to replace the style tag contents from this example, you should write REPLACE lines 8-16
-html```
-1: <!DOCTYPE html>
-2: <html lang="en">
-3:   <head>
-4:     <meta charset="UTF-8" />
-5:     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-6:     <title>Simple Counter App</title>
-7:     <style>
-8:       body {
-9:         font-family: Arial, sans-serif;
-10:         display: flex;
-11:         justify-content: center;
-12:         align-items: center;
-13:         height: 100vh;
-14:         margin: 0;
-15:         background-color: #f5f5f5;
-16:       }
-17:     </style>
-```
+
+
 Here's my code that needs modification:
 
 <ORIGINAL-CODE>
@@ -53,4 +35,4 @@ Please suggest the necessary changes to:
 %user-request%
 </USER-REQUEST>
 
-Note: Use only the line numbers provided in the code. Do not refer to any line by a different number.
+Note: Use only the line numbers provided in the code. Do not refer to any line by a different number. Your response should be in the same format as the code. No other text or comments.

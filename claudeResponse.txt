@@ -1,97 +1,95 @@
-I'll modify the code to create a paper design with grids and modern aesthetics, while ensuring it's mobile responsive.
-
-### REPLACE lines 8-46
+### REPLACE lines 8-16
       body {
-        font-family: 'Roboto', Arial, sans-serif;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
         margin: 0;
-        background-color: #f0f0f0;
-        background-image: 
-          linear-gradient(rgba(200, 200, 200, 0.1) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(200, 200, 200, 0.1) 1px, transparent 1px);
-        background-size: 20px 20px;
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
       }
+
+### ADD after line 16
+      @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+### REPLACE lines 17-23
       .counter-container {
-        position: relative;
         text-align: center;
         background-color: white;
         padding: 2rem;
         border-radius: 8px;
         border: 2px solid #333;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        position: relative;
         max-width: 90%;
         width: 350px;
-      }
-      .counter-container::before {
-        content: '';
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-        border: 1px dashed rgba(0, 0, 0, 0.1);
-        border-radius: 4px;
-        pointer-events: none;
-      }
-      .counter {
-        font-size: 5rem;
-        margin: 1.5rem 0;
-        color: #333;
-        font-weight: bold;
-      }
-      .buttons {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-      }
-      button {
-        padding: 0.75rem 1.75rem;
-        font-size: 1.2rem;
-        border: 2px solid #333;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        background-color: white;
-        color: #333;
-        font-weight: bold;
-      }
-      .decrement {
-        border-color: #ff6b6b;
-      }
-      .reset {
-        border-color: #666;
-      }
-      .increment {
-        border-color: #51cf66;
-      }
-      button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-      button:active {
-        transform: translateY(0);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-      h1 {
-        position: relative;
-        display: inline-block;
-        padding-bottom: 10px;
-      }
-      h1::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 25%;
-        width: 50%;
-        height: 3px;
-        background-color: #333;
+        background-image: 
+          linear-gradient(rgba(200, 200, 200, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(200, 200, 200, 0.1) 1px, transparent 1px);
+        background-size: 20px 20px;
       }
 
-      /* Mobile responsiveness */
-      @media (max-width: 480px) {
+### REPLACE lines 24-28
+      .counter {
+        font-size: 5rem;
+        margin: 1rem 0;
+        color: #333;
+        transition: all 0.3s ease;
+        font-weight: bold;
+      }
+
+### REPLACE lines 34-41
+      button {
+        padding: 0.75rem 2rem;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+### REPLACE lines 53-57
+      .increment {
+        background-color: #51cf66;
+        color: white;
+      }
+      button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      }
+      button:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      button::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100px;
+        height: 100px;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+        transition: transform 0.5s, opacity 0.5s;
+      }
+      button:active::after {
+        transform: translate(-50%, -50%) scale(3);
+        opacity: 0;
+        transition: 0s;
+      }
+      @media (max-width: 600px) {
         .counter-container {
           padding: 1.5rem;
           width: 85%;
@@ -100,14 +98,33 @@ I'll modify the code to create a paper design with grids and modern aesthetics, 
           font-size: 4rem;
         }
         button {
-          padding: 0.6rem 1.2rem;
+          padding: 0.6rem 1.5rem;
           font-size: 1rem;
         }
       }
 
-### ADD after line 51
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+### REPLACE lines 76-77
+        const counterElement = document.getElementById("counter");
+        counterElement.textContent = count;
+        
+        // Add pulse animation when count changes
+        counterElement.classList.add('pulse');
+        setTimeout(() => {
+          counterElement.classList.remove('pulse');
+        }, 300);
 
-### REPLACE lines 55-56
-      <h1>Paper Counter</h1>
-      <div class="counter" id="counter">0</div>
+### ADD after line 95
+      
+      // Add pulse animation CSS
+      document.head.insertAdjacentHTML('beforeend', `
+        <style>
+          @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+          }
+          .pulse {
+            animation: pulse 0.3s ease-in-out;
+          }
+        </style>
+      `);

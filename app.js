@@ -51,13 +51,12 @@ function addLineNumbers(code) {
 
 // If this file is run directly
 async function main() {
-	const userRequest =
-		"Make it look like this is a paper design with a white background and a black border. Add grids and modern aesthetics. make it mobile responsive.";
-	// Open origina.html
+	const userRequest = `Make it look like this is a paper design with a white background and a black border. Add grids and modern aesthetics. make it mobile responsive.
+	Add a background gradient that animates. Create sophisticated effects on button clicks and counter change.`;
+	// const userRequest = `Change fonts and colors for gradients to look like a spaceship modern tesla style`;
+	// Open original.html
 	const inputString = fs.readFileSync("original.html", "utf8");
 	const numberedInputString = addLineNumbers(inputString);
-
-	console.log(numberedInputString);
 
 	if (!userRequest) {
 		console.error(
@@ -67,7 +66,10 @@ async function main() {
 		process.exit(1);
 	}
 
-	const claudeResponse = await processUserRequest(inputString, userRequest);
+	const claudeResponse = await processUserRequest(
+		numberedInputString,
+		userRequest,
+	);
 	fs.writeFileSync("claudeResponse.txt", claudeResponse);
 
 	const modifiedHtml = await modifyHtml(inputString, claudeResponse);
